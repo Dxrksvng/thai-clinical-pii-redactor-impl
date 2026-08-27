@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thai-clinical-pii-redactor"
+version = "0.1.0"
+description = "Clean-room, privacy-first redaction pipeline for synthetic Thai clinical documents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Nattakamon Jaimetha"}]
+dependencies = ["Pillow>=10.0"]
+
+[project.optional-dependencies]
+ocr = ["easyocr>=1.7", "opencv-python-headless>=4.10"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+clinical-pii-redact = "clinical_pii_redactor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
