@@ -1,4 +1,46 @@
-# Thai Clinical PII Redactor
+<div align="center">
+
+# Thai Clinical PII Redactor (implementation)
+
+**Clean-room, privacy-first redaction of synthetic Thai clinical document images.**
+
+![Visibility private](https://img.shields.io/badge/Visibility-private-red?style=for-the-badge) ![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white) ![License MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge) ![Data synthetic only](https://img.shields.io/badge/Data-synthetic_only-2ea44f?style=for-the-badge) ![Tests pytest](https://img.shields.io/badge/Tests-pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+
+</div>
+
+> Prototype, not a PDPA certification or production medical system. Public overview: `Dxrksvng/thai-clinical-pii-redactor`.
+
+## Tech stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=py,opencv,pytest,github&perline=10" alt="Tech stack" />
+</p>
+
+## Pipeline
+
+```mermaid
+flowchart LR
+    IMG["Document image"] --> OCR["OCRProvider (protocol)\nEasyOCRProvider or SidecarOCRProvider"]
+    OCR --> TR["TextRegion\ntext + bounding box"]
+    TR --> DET["detect_pii()\nThai ID with checksum, mobile phone,\nHN/AN, labelled DOB, labelled names"]
+    DET --> RED["redact_document()\nopaque black rectangles"]
+    RED --> OUT["Redacted image"]
+    RED --> AUD[("Audit record\nfile SHA-256 + entity counts only")]
+    DET -- "zero detections" --> REV{{"Mandatory human review"}}
+```
+
+## Code map
+
+| Path | Role |
+|---|---|
+| `src/clinical_pii_redactor/ocr.py` | `TextRegion`, `OCRProvider` protocol, optional `EasyOCRProvider` |
+| `src/clinical_pii_redactor/detectors.py` | `detect_pii`, Thai national-ID checksum validation |
+| `src/clinical_pii_redactor/pipeline.py` | `redact_document`, `PipelineResult`, metadata-only audit counts |
+| `src/clinical_pii_redactor/cli.py` | `clinical-pii-redact` command, sidecar OCR for deterministic demos |
+| `examples/synthetic_regions.json` | Pre-computed OCR regions for reproducible tests |
+| `tests/` | Detector and pipeline tests |
+
+---
 
 A clean-room, privacy-first prototype for redacting personally identifiable information from **synthetic Thai clinical-document images**.
 
