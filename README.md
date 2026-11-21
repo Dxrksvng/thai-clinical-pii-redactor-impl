@@ -4,7 +4,7 @@
 
 **Clean-room, privacy-first redaction of synthetic Thai clinical document images.**
 
-![Visibility private](https://img.shields.io/badge/Visibility-private-red?style=for-the-badge) ![Stage prototype](https://img.shields.io/badge/Stage-prototype-F59E0B?style=for-the-badge) ![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white) ![License MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge) ![Data synthetic only](https://img.shields.io/badge/Data-synthetic_only-2ea44f?style=for-the-badge) ![Tests pytest](https://img.shields.io/badge/Tests-pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white) ![OCR EasyOCR optional](https://img.shields.io/badge/OCR-EasyOCR_optional-6E9F18?style=for-the-badge)
+![Visibility public](https://img.shields.io/badge/Visibility-public-2ea44f?style=for-the-badge) ![Stage prototype](https://img.shields.io/badge/Stage-prototype-F59E0B?style=for-the-badge) ![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white) ![License MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge) ![Data synthetic only](https://img.shields.io/badge/Data-synthetic_only-2ea44f?style=for-the-badge) ![Tests pytest](https://img.shields.io/badge/Tests-pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white) ![OCR EasyOCR optional](https://img.shields.io/badge/OCR-EasyOCR_optional-6E9F18?style=for-the-badge)
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=py,opencv,pytest,github&perline=10" alt="Tech stack" />
@@ -12,7 +12,7 @@
 
 </div>
 
-> **Status: prototype, not a PDPA certification and not a production medical system.** Public overview: `Dxrksvng/thai-clinical-pii-redactor`. Everything here is exercised only against synthetic data. This repository was rebuilt from scratch as a personal engineering project; it contains no employer source code, patient data, internal architecture, production configuration or confidential evaluation material, and it does not represent any employer's security practices.
+> **Status: prototype, not a PDPA certification and not a production medical system.** Examples use synthetic data. This repository was rebuilt from scratch as a personal engineering project; it contains no employer source code, patient data, internal architecture, production configuration or confidential evaluation material, and it does not represent any employer's security practices.
 
 Last updated: 2026-11-03. Behaviour below is read from `src/clinical_pii_redactor/*.py` and `tests/`; nothing was executed for this README.
 
